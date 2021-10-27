@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row text-center p-3">
+        <div class="col-12 col-sm-1 col-md-2 col-lg-4 col-xl-4"></div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 text-center">
+            <h3>Conversaciones</h3>
+            <label id="txtNoTieneConversacionesAsignadas"></label>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-lg-2 col-xl-2">
+<!--             <form id="frmidparaconsultarDatatableConversacion">
+                <input type="text" name="id" value="<?= $idAgente ?>" class="form-control" readonly>
+            </form> -->
+        </div>
+    </div>
+
+    <!--Buscador-->
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-1 col-lg-3 col-xl-3"></div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-8 col-xl-8 border text-center">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-2"></div>
+                    <div class="col-2"></div>
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <form id="frmFiltrarSearchDialogs">
+                            <input type="text" name="idAgente" value="<?= $idAgente ?>" class="form-control" readonly>
+                            <input type="text" class="form-control m-2" name="SearchDialogs" id="SearchDialogs" placeholder="Buscar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-1 col-lg-3 col-xl-3"></div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-8 col-xl-8 border text-center">
+            <form id="frmMostrarConversacionSeleccionada">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Seleccion</th>
+                            <th>Nombre de la Sala</th>
+                            <th>Nombre Cliente</th>
+                            <th>Imagen Cliente</th>
+                            <th>Abierto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabladialogs">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button data-bs-toggle="modal" data-bs-target="#ModalMostrarConversacion" class="btn btn-outline-secondary" id="btnAbrirConversacionSeleccionada"><i class="fas fa-folder-open"></i></button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+        </div>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalMostrarConversacion" tabindex="-1" aria-labelledby="ModalMostrarConversacion" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalMostrarConversacion">Conversacion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ScrollMinimo" id="MostrandoConversacionChatSeleccionado">
+
+                <!--Agregando Imagen de Carga-->
+                <center>
+                    <div class="spinner-border text-success m-5" style="width: 300px; height: 300px;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

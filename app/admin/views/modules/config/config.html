@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row text-center">
+        <p>
+        <h3>ingreso Acces Web Token</h3>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-3"></div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 fa-border shadow my-2">
+            <form id="frmAccesWebToken">
+                <label for="instancia">Instancia:</label>
+                <input type="text" name="instancia" id="instancia" class="form-control my-2"
+                    placeholder="ejemplo: https://api.chat-api.com/instance123">
+                <label for="token">Token:</label>
+                <input type="text" name="token" id="token" class="form-control my-2"
+                    placeholder="ejemplo: by711a23eioudz1m0">
+                <button class="btn btn-outline-success my-2" id="btnIngresoAccesWebToken"
+                    name="btnIngresoAccesWebToken">Ingresar</button>
+            </form>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-3"></div>
+    </div>
+    <div class="row">
+        <div class="row text-center">
+            <p>
+            <h3 id="RespuestaIngresoToken"></h3>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-3"></div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 fa-border shadow">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Instancia</th>
+                        <th>Token</th>
+                    </tr>
+                </thead>
+                <tbody id="TablaTokenChatApi">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-3"></div>
+    </div>
+</div>

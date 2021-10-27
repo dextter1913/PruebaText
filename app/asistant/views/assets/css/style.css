@@ -1,0 +1,44 @@
+/*imagen de fondo asistente*/
+.ImagenCaroucelFondo {
+  background-image: url(../wallpaper/TAPIZ.webp);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*caja del chat*/
+.CajaChat {
+  margin: 1px opx;
+  width: 100%;
+  height: 400px;
+  max-width: auto;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+.CajaChat::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.CajaChat::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.CajaChat::-webkit-scrollbar-button:increment,
+.CajaChat::-webkit-scrollbar-button {
+  display: none;
+}
+
+.CajaChat::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.CajaChat::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.CajaChat::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-4"></div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 text-center">
+            <h2><i>Dashboard</i></h2>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+            <!-- Agregando Campos -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><i class="far fa-comments fa-2x"></i></div>
+                            <div class="card-body">
+                                <h6 class="card-title">Pendientes</h6>
+                                <p class="card-text" id="CardSalasPendientes"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><i class="far fa-comment-alt fa-2x"></i></div>
+                            <div class="card-body">
+                                <h6 class="card-title">Abiertos</h6>
+                                <p class="card-text" id="CardSalasAbiertas"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><i class="fas fa-power-off fa-2x"></i></div>
+                            <div class="card-body">
+                                <h6 class="card-title">Cerrados</h6>
+                                <p class="card-text" id="CardSalasCerradas"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><i class="far fa-user fa-2x"></i></div>
+                            <div class="card-body">
+                                <h6 class="card-title">Asignados</h6>
+                                <p class="card-text" id="CardSalasAsignadas"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><i class="far fa-comment fa-2x"></i></div>
+                            <div class="card-body">
+                                <h6 class="card-title">en Seguimiento</h6>
+                                <p class="card-text" id="CardSalasAsignadas">//</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+    </div>
+    <div class="row ml-5">
+        <div class="col-12 col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-8 border shadow">
+            <form action="MostrandoConversacionAgente" id="frmChatAsignados" method="post">
+                <table id="TableDasboard" class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>
+                                Seleccionar
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellido
+                            </th>
+                            <th>
+                                usuario
+                            </th>
+                            <th>
+                                Chat Pendientes
+                            </th>
+                            <th>
+                                Chat Abiertos
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="ChatAsignadosAgentes">
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><button class="btn btn-outline-success" type="submit" id="btnMostrarChatAgente">Mostrar</button></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+        </div>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+</div>

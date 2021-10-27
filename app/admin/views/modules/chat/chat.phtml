@@ -1,0 +1,83 @@
+<div class="container-fluid ml-5">
+    <div class="row mb-3">
+        <div class="col-12 col-sm-1 col-md-2 col-lg-2 col-xl-2"></div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+            <div class="container-fluid">
+                <div class="row border shadow">
+                    <div class="col-2 text-start">
+                        <img src="<?php if ($image['image'] != null) {
+                                        echo $image['image'];
+                                    } else {
+                                        echo 'app\master\views\assets\css\images\sinfoto.webp';
+                                    } ?>" class="rounded-circle img-thumbnail" style="width:65px;height: auto; " alt="<?= $SalaChat; ?>">
+                    </div>
+                    <div class="col-7 text-start mt-3">
+                        <h4><i><?= $SalaChat; ?></i></h4>
+                    </div>
+                    <div class="col-3 mt-2 text-end">
+                        <h1 id="statusCliente"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-lg-2 col-xl-2 mt-3">
+            <form action="Inicio" method="POST">
+
+
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="far fa-times-circle"></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="ModalEnviarMensajeDespedida" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalEnviarMensajeDespedida">¿Seguro quiere finalizar el Chat?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?= $consulta['cuerpo']; ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button class="btn btn-outline-success" value="<?= $SalaChat; ?>" name="btnCerrarChatConMensaje" type="submit">Resolver Chat con mensaje</button>
+                                <button class="btn btn-outline-danger" value="<?= $SalaChat; ?>" name="btnCerrarChat" type="submit">Resolver Chat</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-12 col-sm-1 col-md-2 col-lg-2 col-xl-2"></div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-8 shadow border">
+            <div class="CajaChat border my-2" id="datos_chat">
+
+
+
+            </div>
+            <form id="frmMostrarChat">
+                <div class="container-fluid my-2">
+                    <div class="row">
+                        <div class="col-12 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                            <input type="text" name="chatId" id="chatId" value="<?= $SalaChat; ?>" class="form-control" readonly>
+                            <div class="emoji-picker-container mt-2">
+                                <!--<input class="form-control" data-emojiable="true" data-emoji-input="unicode" type="text" name="txtCuerpoMensage" id="txtCuerpoMensage" placeholder="Enviar Mensaje">-->
+                                <input class="form-control" maxlength="60" type="text" autocomplete="off" name="txtCuerpoMensage" id="txtCuerpoMensage" placeholder="Enviar Mensaje">
+                                <p id="CantidadCaracteresMaximos" class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1 mt-3">
+                            <button class="btn btn-outline-success" id="btnEnviarMensajeWhatsapp"><i class="far fa-paper-plane fa-1x"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+</div>

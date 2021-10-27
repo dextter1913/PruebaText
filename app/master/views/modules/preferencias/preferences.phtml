@@ -1,0 +1,124 @@
+<div class="d-flex align-items-start">
+    <div class="container mr-5">
+        <div class="row">
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 my-1 text-end">
+                <div class="shadow-lg border nav flex-column nav-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link text-dark active" id="v-pills-Consultar-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Consultar" type="button" role="tab" aria-controls="v-pills-Consultar" aria-selected="true">Consultar</button>
+                    <button class="nav-link text-dark" id="v-pills-AgregarNuevoUsuario-tab" data-bs-toggle="pill" data-bs-target="#v-pills-AgregarNuevoUsuario" type="button" role="tab" aria-controls="v-pills-AgregarNuevoUsuario" aria-selected="false">Agregar Agente</button>
+                    <button class="nav-link text-dark" id="v-pills-CambiarContraseña-tab" data-bs-toggle="pill" data-bs-target="#v-pills-CambiarContraseña" type="button" role="tab" aria-controls="v-pills-CambiarContraseña" aria-selected="false">Gestion Usuarios</button>
+                    <button class="nav-link text-dark" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+                </div>
+            </div>
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 shadow-lg my-1">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade  show active text-center" id="v-pills-Consultar" role="tabpanel" aria-labelledby="v-pills-Consultar-tab">
+                        <h2 class="text-center">Consultar Usuarios</h2>
+                        <table class="border table table-sm table-hover table-responsive" id="TablaAgentes">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Password</th>
+                                    <th>Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-AgregarNuevoUsuario" role="tabpanel" aria-labelledby="v-pills-AgregarNuevoUsuario-tab">
+                        <div class="row">
+                            <h2 class="text-center">Ingresar Usuarios</h2>
+                            <h6 class="text-center" id="RespuestaIngresoAgentes"></h6>
+                        </div>
+                        <form method="post" id="frmIngresarAgente" class="row">
+                            <div class="col-12 col-md-6">
+                                <label for="user" class="form-label">Usuario:</label>
+                                <input type="text" name="user" id="user" class="form-control" placeholder="Ingrese el Usuario" required="required" pattern="[A-Za-z0-9]{1,50}" onkeypress="return event.charCode != 32"><br>
+                                <label for="nombre" class="form-label">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese Nombre" required="required" pattern="[A-Za-z]{1,50}"><br>
+                                <label for="apellido" class="form-label">Apellido:</label>
+                                <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese Apellido" required="required"><br>
+                                <label for="documento">Documento:</label>
+                                <input type="text" name="documento" id="documento" class="form-control" placeholder="Ingrese Documento" required="required"><br>
+                                <input type="checkbox" name="admin" id="admin" class="form-check-input" style="margin-left: 30px;">
+                                <label for="admin" class="form-check-label" style="margin-left: 50px;">Admin</label>
+                                <input type="checkbox" name="master" id="master" class="form-check-input" style="margin-left: 30px;">
+                                <label for="master" class="form-check-label" style="margin-left: 50px;">Master</label>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="telefono">Telefono:</label>
+                                <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Ingrese Telefono" required="required"><br>
+                                <label for="direccion">Direccion:</label>
+                                <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Ingrese Direccion" required="required"><br>
+                                <label for="correo">Correo:</label>
+                                <input type="email" name="correo" id="correo" class="form-control" placeholder="Ingrese Email" required="required"><br>
+                                <label for="password" class="form-label">Contraseña:</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese Pass" required="required"><br>
+                                <label for="ConfirmacionPassword" class="form-label">Confirmacion Contraseña:</label>
+                                <input type="password" name="ConfirmacionPassword" id="ConfirmacionPassword" class="form-control" placeholder="Confirme Pass" required="required"><br>
+                                <center><button name="btnRegistrarAgente" id="btnRegistrarAgente" class="btn btn-success">Registrar</button></center>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-CambiarContraseña" role="tabpanel" aria-labelledby="v-pills-CambiarContraseña-tab">
+                        <h2 class="text-center">Cambiar Contraseña Usuarios</h2>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <?php while ($rows = mysqli_fetch_assoc($Resultado)) : ?>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <form action="CambiarContrasena" method="post">
+                                            <div class="card" style="width: 18rem;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title text-center"><?= $rows['nombre'] ?></h5>
+                                                    <h6 class="card-subtitle mb-2 text-muted"><?= $rows['usuario'] ?></h6>
+                                                    <p class="card-text">
+                                                        <?= $rows['nombre'] ?> <?= $rows['apellido'] ?><br>
+                                                        Contraseña: <b>*****</b><br>
+                                                        es admin: <?= $rows['admin'] ?></p>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal<?= $rows['usuario'] ?>">
+                                                        Cambiar Contraseña
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="Modal<?= $rows['usuario'] ?>">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="FormularioModificarPass">Modificar Contraseña</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <center>
+                                                                        <p id="MensajeCoincidencia" style="font-size: 16px;"></p>
+                                                                    </center>
+                                                                    <label for="UsuarioAgenteCambioContraseña">Usuario</label>
+                                                                    <input type="text" name="UsuarioAgenteCambioContrasena" id="UsuarioAgenteCambioContrasena" class="form-control" value="<?= $rows['usuario'] ?>" readonly><br>
+                                                                    <label for="NuevaContrasena" class="form-label">Ingrese Nueva Contraseña</label>
+                                                                    <input type="password" name="NuevaContrasena" id="NuevaContrasena" class="form-control" placeholder="Ingrese nueva pass" required="required"><br>
+                                                                    <label for="ConfirmarNuevaContrasena" class="form-label">Confirme Nueva Contraseña</label>
+                                                                    <input type="password" name="ConfirmarNuevaContrasena" id="ConfirmarNuevaContrasena" class="form-control" placeholder="Confirme nueva pass" required="required">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit" name="btnCambiarContrasenaAgente" class="btn btn-success" id="btnCambiarContrasenaAgente">Cambiar Contraseña</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                <?php endwhile; ?>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

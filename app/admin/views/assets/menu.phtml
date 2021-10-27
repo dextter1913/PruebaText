@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" data-bs-toggle="offcanvas" href="#Conversaciones" role="button" aria-controls="Conversaciones"><?= $_SESSION['Admin'] ?></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavAdmin" aria-controls="NavAdmin" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="NavAdmin">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Inicio">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Agentes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Config
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="formAccesWebToken">Configuracion</a></li>
+            <li><a class="dropdown-item" href="Preferences">Preferencias</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="Cerrar">Cerrar</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+<div class="offcanvas offcanvas-start text-center my-5" tabindex="-1" id="Conversaciones" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <div class="container-fluid">
+      <div class="row">
+        <center>
+          <h3><i>Select Insurance</i></h3>
+        </center>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <form action="" method="post">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="Filtro" id="floatingInput" placeholder="Usuario" autocomplete="off">
+              <label for="floatingInput"><i class="fas fa-search"></i> Filtrar</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-body ScrollMinimo shadow border">
+    <?php while ($rows = mysqli_fetch_assoc($consulta)) : ?>
+      <form action="SalaChat" method="post">
+        <div class="d-grid">
+
+          <button type="submit" name="btnAbrirChat" value="<?= $rows['id'] ?>" class="btn btn-outline-success rounded-1" target="__blank">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-3 col-md-3 col-lg-3 col-xl-3">
+
+                  <img src="<?php if (!empty($rows['image'])) {
+                              print $rows['image'];
+                            } else {
+                              print 'app\master\views\assets\css\images\sinfoto.webp';
+                            }  ?>" class="img-thumbnail rounded float-start" width="40px">
+
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                  <?= $rows['name'] ?>
+                </div>
+                <div class="col-3 col-md-3 col-lg-3 col-xl-3">
+                  <div class="dropdown">
+                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-cog fa-1x"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="TransferirChat">Transferir</a></li>
+                      <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </form>
+    <?php endwhile; ?>
+  </div>
+</div>

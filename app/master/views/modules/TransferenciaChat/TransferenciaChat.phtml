@@ -1,0 +1,42 @@
+<form id="frmTransferirChat">
+    <div class="container">
+        <div class="row my-3">
+            <center>
+                <h2><i>Transferir Sala de chat</i></h2>
+            </center>
+            <center><h4 id="RespuestaTransferencia"></h4></center>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-1 col-md-1 col-lg-2 col-xl-2"></div>
+            <div class="col-12 col-sm-10 col-md-10 col-lg-8 col-xl-8 text-center shadow-sm border">
+                <table class="table table-hover border" id="TablaTransferirChat">
+                    <thead>
+                        <tr>
+                            <th>Seleccionar</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-sm-1 col-md-1 col-lg-2 col-xl-2"></div>
+        </div>
+        <div class="row my-1">
+            <div class="col-12 col-sm-1 col-md-3 col-lg-4 col-xl-4"></div>
+            <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-3">
+                <label for="IdAgenteTransferir">Ingrese el ID del Agente:</label>
+                <input type="text" name="IdAgenteTransferir" id="IdAgenteTransferir" class="form-control" placeholder="Ingrese ID" required="required">
+            </div>
+            <div class="col-12 col-sm-7 col-md-6 col-lg-3 col-xl-3">
+                <label for="SeleccionSalaChat">Seleccione Sala:</label>
+                <input type="text" name="SeleccionSalaChat" value="<?= $id ?>" id="SeleccionSalaChat" class="form-control" readonly>
+            </div>
+            <div class="col-12 col-sm-1 col-md-1 col-lg-2 col-xl-2">
+                <button type="button" class="btn btn-outline-success my-4" id="btnTransferirChat">Transferir</button>
+            </div>
+        </div>
+    </div>
+</form>
