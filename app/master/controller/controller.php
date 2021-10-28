@@ -230,9 +230,9 @@ class controller
             //Condicion para Agregar nuevo chat o no
             if (!empty($_POST['NumeroCliente'])) {
                 $user = $_SESSION['Master'];
-                $id = $_POST['CodigoPais'].$_POST['NumeroCliente'].'@c.us';
-                $SalaChat = $_POST['CodigoPais'].$_POST['NumeroCliente'];
-            }else {
+                $id = $_POST['CodigoPais'] . $_POST['NumeroCliente'] . '@c.us';
+                $SalaChat = $_POST['CodigoPais'] . $_POST['NumeroCliente'];
+            } else {
                 $user = $_SESSION['Master'];
                 $id = $_POST['btnAbrirChat'];
                 $SalaChat = str_replace('@c.us', '', $_POST['btnAbrirChat']);
@@ -497,7 +497,7 @@ class controller
         higher();
         Nav();
 
-        
+
         require_once 'app/master/views/modules/TransferenciaChat/TransferenciaChat.phtml';
         lower();
     }
@@ -517,7 +517,7 @@ class controller
     {
         if (isset($_POST)) {
             $idAgente = $_POST['IdAgenteTransferir'];
-            $id = $_POST['chatId'].'@c.us';
+            $id = $_POST['chatId'] . '@c.us';
             crud::Update(query::UpdateDialogs($idAgente, $id));
             echo 'Transferencia Exitosa';
         } else {
@@ -625,7 +625,7 @@ class controller
         echo $resultado['v_conteo'];
     }
 
-    
+
     //Tabla para mostrar cantidad de chat asignados a cada agente
     public static function TablaChatAsignadoAgente()
     {
@@ -756,6 +756,7 @@ class controller
     //Consultando los datos recibidos por el input de dialogs mostrados en la tabla
     public static function FiltrarDatosTabla()
     {
+        error_reporting(0);
         $valor = $_POST['SearchDialogs'];
         $id = $_POST['idAgente'];
         if (!empty($valor)) {
@@ -785,6 +786,7 @@ class controller
                 $i++;
             }
         }
+        
         print json_encode($Array, JSON_PRETTY_PRINT);
     }
 

@@ -18,8 +18,8 @@ class mysql
     public function Conexion()
     {
         $mysql = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
-
-        if ($mysqli = mysqli_connect_errno()) {
+        error_reporting(0);
+        if ($mysql->mysqli_connect_errno) {
             echo 'Error de conexion';
         } else {
             return $mysql;
