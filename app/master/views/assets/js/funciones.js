@@ -76,44 +76,44 @@ var MostrarModalTablaChatAcumulado = function () {
                 console.log(error);
             }
         });
-        $.ajax({
-            type: "POST",
-            url: "MostrarTablaChatAcumulado",
-            success: function (Respuesta) {
-                //console.log(Respuesta);
-                var json = JSON.parse(Respuesta);
-                if (json !== 'null') {
-                    var tbody = '';
-                    json.forEach(
-                        consulta => {
-                            if (consulta.Asignador == null) {
-                                var SinAsignar = 'Sin Asignar';
-                            }
-                            tbody += `
-                                <tr>
-                                    <td>${consulta.id}</td>
-                                    <td>${consulta.name}</td>
-                                    <td><img src="${consulta.image}" class="img-thumbnail rounded" width="40px"></td>
-                                    <td>${SinAsignar}</td>
-                                    <td>${consulta.idAgentes}</td>
-                                    <td>
-                                    <form action="ConsultandoSalaDesdeModalTotal" method="post">
-                                    <button type="submit" value="${consulta.id}" class="btn btn-success btn-sm" name="btnIdConsultarSala[]"><i class="far fa-share-square"></i></button></input>
-                                    </form>
-                                    </td>
-                                </tr>
-                                `;
+    });
+    $.ajax({
+        type: "POST",
+        url: "MostrarTablaChatAcumulado",
+        success: function (Respuesta) {
+            //console.log(Respuesta);
+            var json = JSON.parse(Respuesta);
+            if (json !== 'null') {
+                var tbody = '';
+                json.forEach(
+                    consulta => {
+                        if (consulta.Asignador == null) {
+                            var SinAsignar = 'Sin Asignar';
                         }
-                    )
-                    $('#TablaChatAcumulado').html(tbody);
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr);
-                console.log(status);
-                console.log(error);
+                        tbody += `
+                            <tr>
+                                <td>${consulta.id}</td>
+                                <td>${consulta.name}</td>
+                                <td><img src="${consulta.image}" class="img-thumbnail rounded" width="40px"></td>
+                                <td>${SinAsignar}</td>
+                                <td>${consulta.idAgentes}</td>
+                                <td>
+                                <form action="ConsultandoSalaDesdeModalTotal" method="post">
+                                <button type="submit" value="${consulta.id}" class="btn btn-success btn-sm" name="btnIdConsultarSala[]"><i class="far fa-share-square"></i></button></input>
+                                </form>
+                                </td>
+                            </tr>
+                            `;
+                    }
+                )
+                $('#TablaChatAcumulado').html(tbody);
             }
-        });
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
     });
 
 }

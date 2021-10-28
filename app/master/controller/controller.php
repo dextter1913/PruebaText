@@ -547,6 +547,7 @@ class controller
     //Mostrar Tabla Dialogs totales
     public static function MostrarTablaChatAcumulado()
     {
+        error_reporting(0);
         $datos = $_POST['FiltroTablaTotal'];
         //echo $datos;
         if (!empty($datos)) {
