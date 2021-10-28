@@ -547,9 +547,13 @@ class controller
     //Mostrar Tabla Dialogs totales
     public static function MostrarTablaChatAcumulado()
     {
-        error_reporting(0);
-        $datos = $_POST['FiltroTablaTotal'];
+        //
+        $datos = '';
+        if (isset($_POST['FiltroTablaTotal'])) {
+            $datos = $_POST['FiltroTablaTotal'];
+        }
         //echo $datos;
+        $Array = array();
         if (!empty($datos)) {
             $consulta = crud::Read(query::ReadDialogsFiltrando($datos));
             $i = 0;
@@ -757,7 +761,8 @@ class controller
     //Consultando los datos recibidos por el input de dialogs mostrados en la tabla
     public static function FiltrarDatosTabla()
     {
-        error_reporting(0);
+        //error_reporting(0);
+        $Array = array();
         $valor = $_POST['SearchDialogs'];
         $id = $_POST['idAgente'];
         if (!empty($valor)) {

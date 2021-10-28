@@ -42,7 +42,7 @@ var MostrarModalTablaChatAcumulado = function () {
             url: "MostrarTablaChatAcumulado",
             data: form,
             success: function (Respuesta) {
-                //console.log(Respuesta);
+                console.log(Respuesta);
                 var json = JSON.parse(Respuesta);
                 if (json !== 'null') {
                     var tbody = '';
@@ -81,7 +81,7 @@ var MostrarModalTablaChatAcumulado = function () {
         type: "POST",
         url: "MostrarTablaChatAcumulado",
         success: function (Respuesta) {
-            //console.log(Respuesta);
+            console.log(Respuesta);
             var json = JSON.parse(Respuesta);
             if (json !== 'null') {
                 var tbody = '';
@@ -89,6 +89,8 @@ var MostrarModalTablaChatAcumulado = function () {
                     consulta => {
                         if (consulta.Asignador == null) {
                             var SinAsignar = 'Sin Asignar';
+                        }else{
+                            var SinAsignar = consulta.Asignador;
                         }
                         tbody += `
                             <tr>
