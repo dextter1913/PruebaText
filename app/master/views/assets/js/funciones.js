@@ -14,6 +14,7 @@ $(document).ready(function () {
     setInterval('MostrarCantidadSalasChatCerradas()', 3000);
     setInterval('TablaChatAsignadoAgente()', 30000)
     setInterval('ReadConversacionDialogSeleccionadoTablaConversaciones()', 500);
+    addEventListener()
     MostrarMensajesDespedida();
     DeleteMensajeDespedida();
     ValidacionCantidadMaximaCaracteres();
